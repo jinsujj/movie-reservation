@@ -1,0 +1,9 @@
+2024-07-07 13:15:56 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM CUSTOMER CUSTOMER [*]DISCOUNT_CONDITION"; SQL statement:
+SELECT * FROM CUSTOMER CUSTOMER DISCOUNT_CONDITION [42000-214]
+2024-07-07 13:16:07 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]DISCOUNT_POLICY"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+DISCOUNT_POLICY [42001-214]
+2024-07-07 13:16:07 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]DISCOUNT_POLICY"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+DISCOUNT_POLICY [42001-214]
