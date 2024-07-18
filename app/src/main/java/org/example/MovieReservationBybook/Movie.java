@@ -35,4 +35,37 @@ public class Movie {
 	private boolean isDiscountable(Screening screening) {
 		return discountConditions.stream().anyMatch(condition -> condition.isSatisfiedBy(screening));
 	}
+
+	private Money calculateDiscountAmount() {
+		switch (movieType) {
+			case AMOUNT_DISCOUNT:
+				return calculateAmountDiscountAmount();
+
+			case PERCENT_DISCOUNT:
+				return calculatePercentDiscountAmount();
+
+			case NONE_DISCOUNT:
+				return calculateNoneDiscountAmount();
+
+			default:
+				break;
+		}
+		throw new IllegalStateException();
+	}
+
+	private Money calculateNoneDiscountAmount() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'calculateNoneDiscountAmount'");
+	}
+
+	private Money calculateAmountDiscountAmount() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'calculateAmountDiscountAmount'");
+	}
+
+	private Money calculatePercentDiscountAmount() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'calculatePercentDiscountAmount'");
+	}
+
 }
