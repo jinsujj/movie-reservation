@@ -1,7 +1,7 @@
 package org.example.moviereservation.entity.discount.condition;
 
 import org.example.moviereservation.entity.Screening;
-import org.example.moviereservation.entity.policy.DiscountPolicy;
+import org.example.moviereservation.entity.discount.policy.DiscountPolicy;
 
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
@@ -20,15 +20,16 @@ import lombok.Setter;
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
-@Getter @Setter
+@Getter
+@Setter
 public abstract class DiscountCondition {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "discount_policy_id")
-    private DiscountPolicy discountPolicy;
+	@ManyToOne
+	@JoinColumn(name = "discount_policy_id")
+	private DiscountPolicy discountPolicy;
 
-    public abstract boolean isSatisfiedBy(Screening screening);
+	public abstract boolean isSatisfiedBy(Screening screening);
 }

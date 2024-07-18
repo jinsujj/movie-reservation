@@ -1,4 +1,4 @@
-package org.example.moviereservation.entity.policy;
+package org.example.moviereservation.entity.discount.policy;
 
 import java.util.List;
 
