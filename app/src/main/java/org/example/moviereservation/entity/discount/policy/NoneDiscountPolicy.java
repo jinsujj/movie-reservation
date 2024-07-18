@@ -1,4 +1,4 @@
-package org.example.moviereservation.entity.discount.policy;
+package org.example.moviereservation.entity.policy;
 
 import org.example.moviereservation.entity.Money;
 import org.example.moviereservation.entity.Screening;
