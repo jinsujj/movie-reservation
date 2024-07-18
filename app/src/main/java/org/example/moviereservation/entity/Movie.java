@@ -2,7 +2,7 @@ package org.example.moviereservation.entity;
 
 import java.time.Duration;
 
-import org.example.moviereservation.entity.policy.DiscountPolicy;
+import org.example.moviereservation.entity.discount.policy.DiscountPolicy;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -15,32 +15,32 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
 @NoArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 public class Movie {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String title;
-    private Duration runningTime;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String title;
+	private Duration runningTime;
 
-    @Embedded
-    private Money fee;
+	@Embedded
+	private Money fee;
 
-    @ManyToOne
-    @JoinColumn(name = "discount_policy_id")
-    private DiscountPolicy discountPolicy;
+	@ManyToOne
+	@JoinColumn(name = "discount_policy_id")
+	private DiscountPolicy discountPolicy;
 
-    public Movie(String title, Duration runningTime, Money fee, DiscountPolicy discountPolicy) {
-        this.title = title;
-        this.runningTime = runningTime;
-        this.fee = fee;
-        this.discountPolicy = discountPolicy;
-    }
+	public Movie(String title, Duration runningTime, Money fee, DiscountPolicy discountPolicy) {
+		this.title = title;
+		this.runningTime = runningTime;
+		this.fee = fee;
+		this.discountPolicy = discountPolicy;
+	}
 
-    public Money calculateMovieFee(Screening screening) {
-        return fee.minus(discountPolicy.calculateDiscountAmount(screening));
-    }
+	public Money calculateMovieFee(Screening screening) {
+		return fee.minus(discountPolicy.calculateDiscountAmount(screening));
+	}
 }
