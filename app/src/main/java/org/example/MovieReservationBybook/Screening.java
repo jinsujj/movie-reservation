@@ -1,5 +1,7 @@
 package org.example.MovieReservationBybook;
 
+import java.time.LocalDateTime;
+
 /*
  * 1. 협력의 관점에서 Screening은 예매하라 메시지에 응답할 수 있어야 한다. 
  * 
@@ -11,7 +13,7 @@ package org.example.MovieReservationBybook;
 public class Screening {
 	private Movie movie;
 	private int sequence;
-	private LocalDatetime whenScreened;
+	private LocalDateTime whenScreened;
 
 	public Reservation reserve(Customer customer, int audienceCount) {
 
