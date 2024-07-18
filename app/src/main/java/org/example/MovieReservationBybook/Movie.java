@@ -27,6 +27,12 @@ public class Movie {
 	private double discountPercent;
 
 	public Money calculateMovieFee(Screening screening) {
+		if (isDiscountable(screening)) {
+			return fee.minus(calculateDiscountAmount());
+		}
+	}
 
+	private boolean isDiscountable(Screening screening) {
+		return discountConditions.stream().anyMatch(condition -> condition.isSatisfiedBy(screening));
 	}
 }
